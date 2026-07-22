@@ -1,8 +1,8 @@
 FROM python:3.9.25-alpine3.22 AS builder
 WORKDIR /app
 COPY requirements.txt .
-# COPY payment.ini .
-# COPY *.py .
+#COPY payment.ini .
+#COPY *.py .
 RUN apk add --no-cache --virtual .build-deps gcc musl-dev linux-headers python3-dev \
     && pip3 install --prefix=/install -r requirements.txt \
     && apk del .build-deps
